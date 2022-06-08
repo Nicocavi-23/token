@@ -35,4 +35,17 @@ public class UserServiceImpl implements UserService {
         repository.save(user);
         return "Added a user";
     }
+
+    @Override
+    public Long findIdByEmail(String email) {
+        Iterable<User> result = repository.findAll();
+        for(User c : result){
+            if (c.getEmail()!= null) {
+                if (c.getEmail().equals(email)) {
+                    return c.getId();
+                }
+            }
+        }
+        return null;
+    }
 }

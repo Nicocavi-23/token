@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(new AuthorizationFilter(authenticationManager(), this.userRepository), UsernamePasswordAuthenticationFilter.class).authorizeRequests()
                 .antMatchers("/public/**").permitAll()
                 .antMatchers("/signup").permitAll()
+                .antMatchers("/orders/**").permitAll()
                 .anyRequest().authenticated();
     }
 

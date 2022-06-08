@@ -7,4 +7,6 @@ public interface UserService {
     // post for registration
     String insert(User user);
 
+    Long findIdByEmail(String email);
+
 }
