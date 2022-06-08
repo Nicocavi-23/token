@@ -36,22 +36,17 @@ public class UserController {
 
         //find id from email in users
         Long id = userService.findIdByEmail(email);
-        log.debug(String.valueOf(id));
                 //find token from id_users in credentials
         String token = String.valueOf(authenticationService.findTokenFromIdUser(id));
                 //check exp token valid
-        log.debug(token);
         String[] chunks = token.split("\\.");
         Base64.Decoder decoder = Base64.getUrlDecoder();
         String payload = new String(decoder.decode(chunks[1]));
         chunks = payload.split(",");
         chunks = chunks[1].split(":");
-        log.debug(String.valueOf(chunks));
         Long exp = Long.valueOf(chunks[1]);
         Date date = new Date();
         Long d = date.getTime()/1000;
-        log.debug(String.valueOf(exp));
-        log.debug(String.valueOf(d));
         if (exp < d){
             return "Token non valido";
         }
