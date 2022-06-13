@@ -73,13 +73,6 @@ public class AuthenticationController {
         return token;
          */
     }
-/*
-    @GetMapping()
-    public Authentication getOrder() {
-
-        return authenticationService.findById(id);
-    }
-*/
 
 
     class SampleAuthenticationManager implements AuthenticationManager {
