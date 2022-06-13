@@ -30,8 +30,9 @@ public class UserController {
         return userService.insert(user);
     }
 
+    /* Quando ancora eravamo vecchie glorie
     @GetMapping("/orders/{email}")
-    public String getSomething(@PathVariable String email) {
+    public Object getSomething(@PathVariable String email) {
 
 
         //find id from email in users
@@ -48,12 +49,12 @@ public class UserController {
         Date date = new Date();
         Long d = date.getTime()/1000;
         if (exp < d){
-            return "Token non valido";
+            return "Token not valid";
         }
                 //ESECUZIONE API NICO REPO
         String uri = "http://localhost:8084/api/customer/orders/" + id;
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
+        Object result = restTemplate.getForObject(uri, Object.class);
         return result;
-    }
+    }*/
 }
