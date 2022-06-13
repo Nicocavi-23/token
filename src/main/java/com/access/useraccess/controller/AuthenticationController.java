@@ -65,13 +65,6 @@ public class AuthenticationController {
     @GetMapping
     public String getQualcosa() {
         return "gianfrancozola";
-        //return request.getHeader("Authorization");
-        //String token = tokenNotParsed.split(" ")[1];
-        /*JwtUtils jwtUtils = new JwtUtils();
-        return jwtUtils.validateJwtToken(token);
-
-        return token;
-         */
     }
 
 
